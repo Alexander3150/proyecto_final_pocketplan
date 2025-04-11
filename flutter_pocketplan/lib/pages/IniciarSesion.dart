@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_pocketplan/pages/recover_pasword.dart';
 
-// Paleta de colores personalizada (como en recover_password.dart)
+// Paleta de colores personalizada
 class AppColors {
   static const Color fondo = Color(0xFF143755); // fondo oscuro azulado
   static const Color boton = Color(0xFF6FABC5); // botones azul celeste
