@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_pocketplan/pages/recover_pasword.dart';
 
 // Paleta de colores personalizada
 class AppColors {
@@ -39,11 +40,7 @@ class _IniciarSesionState extends State<IniciarSesion> {
             Expanded(
               flex: 35,
               child: Center(
-                child: Icon(
-                  Icons.person,
-                  size: 350,
-                  color: Colors.black,
-                ),
+                child: Icon(Icons.person, size: 350, color: Colors.black),
               ),
             ),
             // Fila 2: Usuario
@@ -58,7 +55,7 @@ class _IniciarSesionState extends State<IniciarSesion> {
                         'USUARIO',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 24,
+                          fontSize: 18,
                           color: Colors.black,
                         ),
                       ),
@@ -99,7 +96,7 @@ class _IniciarSesionState extends State<IniciarSesion> {
                         'CONTRASEÑA',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 22,
+                          fontSize: 18,
                           color: Colors.black,
                         ),
                       ),
@@ -123,7 +120,9 @@ class _IniciarSesionState extends State<IniciarSesion> {
                             border: OutlineInputBorder(),
                             suffixIcon: IconButton(
                               icon: Icon(
-                                _obscureText ? Icons.visibility : Icons.visibility_off,
+                                _obscureText
+                                    ? Icons.visibility
+                                    : Icons.visibility_off,
                                 color: Colors.grey,
                               ),
                               onPressed: () {
@@ -146,7 +145,10 @@ class _IniciarSesionState extends State<IniciarSesion> {
                 child: ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 40,
+                      vertical: 15,
+                    ),
                     backgroundColor: const Color.fromARGB(255, 167, 206, 226),
                     textStyle: const TextStyle(
                       fontWeight: FontWeight.bold,
@@ -185,9 +187,24 @@ class _IniciarSesionState extends State<IniciarSesion> {
                     flex: 5,
                     child: Center(
                       child: FloatingActionButton.extended(
-                        onPressed: () {},
-                        backgroundColor: const Color.fromARGB(255, 132, 205, 241),
-                        icon: const Icon(Icons.lock_reset, color: Colors.black), // blanco
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const RecoverPasswordPage(),
+                            ),
+                          );
+                        },
+                        backgroundColor: const Color.fromARGB(
+                          255,
+                          132,
+                          205,
+                          241,
+                        ),
+                        icon: const Icon(
+                          Icons.lock_reset,
+                          color: Colors.black,
+                        ), // blanco
                         label: const Text(
                           'Olvidó su Contraseña',
                           style: TextStyle(
@@ -208,4 +225,3 @@ class _IniciarSesionState extends State<IniciarSesion> {
     );
   }
 }
-
