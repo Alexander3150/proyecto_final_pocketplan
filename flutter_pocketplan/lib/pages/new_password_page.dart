@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_pocketplan/pages/IniciarSesion.dart';
 
 class NuevaContrasenaPage extends StatefulWidget {
   @override
@@ -48,6 +49,13 @@ class _NuevaContrasenaPageState extends State<NuevaContrasenaPage> {
           duration: Duration(seconds: 2),
         ),
       );
+      // Navegar a la pantalla de validación de código después de un breve retraso
+      Future.delayed(const Duration(seconds: 2), () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const IniciarSesion()),
+        );
+      });
     }
   }
 
@@ -174,7 +182,12 @@ class _NuevaContrasenaPageState extends State<NuevaContrasenaPage> {
 
                   TextButton(
                     onPressed: () {
-                      //Navigator.pop(context);
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => IniciarSesion(),
+                        ),
+                      );
                     },
                     style: TextButton.styleFrom(
                       foregroundColor: Colors.white,
