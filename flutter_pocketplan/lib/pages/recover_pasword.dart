@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_pocketplan/pages/code_validation_page.dart';
 
 class RecoverPasswordPage extends StatefulWidget {
   const RecoverPasswordPage({super.key});
@@ -71,6 +72,14 @@ class _RecoverPasswordPageState extends State<RecoverPasswordPage> {
           duration: Duration(seconds: 2),
         ),
       );
+
+      // Navegar a la pantalla de validación de código después de un breve retraso
+      Future.delayed(const Duration(seconds: 2), () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const CodeValidationPage()),
+        );
+      });
     }
   }
 
@@ -153,7 +162,16 @@ class _RecoverPasswordPageState extends State<RecoverPasswordPage> {
 
                   // Enlace de regreso
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pop(
+                        context,
+                      ); // Esto regresará a la pantalla anterior (que debería ser IniciarSesion)
+                      // O si necesitas navegar directamente a IniciarSesion:
+                      // Navigator.pushReplacement(
+                      //   context,
+                      //   MaterialPageRoute(builder: (context) => IniciarSesion()),
+                      // );
+                    },
                     style: TextButton.styleFrom(
                       foregroundColor: Colors.white,
                       shape: RoundedRectangleBorder(
