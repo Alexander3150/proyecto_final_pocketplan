@@ -162,7 +162,16 @@ class _RecoverPasswordPageState extends State<RecoverPasswordPage> {
 
                   // Enlace de regreso
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pop(
+                        context,
+                      ); // Esto regresará a la pantalla anterior (que debería ser IniciarSesion)
+                      // O si necesitas navegar directamente a IniciarSesion:
+                      // Navigator.pushReplacement(
+                      //   context,
+                      //   MaterialPageRoute(builder: (context) => IniciarSesion()),
+                      // );
+                    },
                     style: TextButton.styleFrom(
                       foregroundColor: Colors.white,
                       shape: RoundedRectangleBorder(
