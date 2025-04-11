@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_pocketplan/pages/recover_pasword.dart';
 
-// Paleta de colores personalizada
+// Paleta de colores personalizada (como en recover_password.dart)
 class AppColors {
-  static const Color fondo = Color(0xFF83b0c2);
-  static const Color boton = Color(0xFFa4c3d3);
+  static const Color fondo = Color(0xFF143755); // fondo oscuro azulado
+  static const Color boton = Color(0xFF6FABC5); // botones azul celeste
   static const Color textoClaro = Colors.white;
+  static const Color bordeInput = Color(0xFF7CBED8); // borde para los campos
 }
 
 class IniciarSesion extends StatefulWidget {
@@ -22,7 +23,7 @@ class _IniciarSesionState extends State<IniciarSesion> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.fondo,
-      resizeToAvoidBottomInset: false, // <-- evita que se mueva el diseño
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Column(
           children: [
@@ -33,22 +34,22 @@ class _IniciarSesionState extends State<IniciarSesion> {
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
-                  color: Colors.black,
+                  color: AppColors.textoClaro,
                 ),
               ),
             ),
             Expanded(
               flex: 35,
               child: Center(
-                child: Icon(Icons.person, size: 350, color: Colors.black),
+                child: Icon(Icons.person, size: 350, color: AppColors.textoClaro),
               ),
             ),
-            // Fila 2: Usuario
+            // Fila Usuario
             Expanded(
               flex: 15,
               child: Row(
                 children: [
-                  Expanded(
+                  const Expanded(
                     flex: 3,
                     child: Center(
                       child: Text(
@@ -56,7 +57,7 @@ class _IniciarSesionState extends State<IniciarSesion> {
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 18,
-                          color: Colors.black,
+                          color: AppColors.textoClaro,
                         ),
                       ),
                     ),
@@ -68,14 +69,23 @@ class _IniciarSesionState extends State<IniciarSesion> {
                         width: 250,
                         child: TextField(
                           textAlign: TextAlign.center,
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: 20, // <-- tamaño de letra aumentado
+                            fontSize: 20,
+                            color: AppColors.textoClaro,
                           ),
                           decoration: InputDecoration(
                             filled: true,
-                            fillColor: Colors.white,
-                            border: OutlineInputBorder(),
+                            fillColor: AppColors.boton,
+                            border: OutlineInputBorder(
+                              borderSide: BorderSide(color: AppColors.bordeInput),
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: AppColors.bordeInput),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: AppColors.textoClaro, width: 2),
+                            ),
                           ),
                         ),
                       ),
@@ -84,12 +94,12 @@ class _IniciarSesionState extends State<IniciarSesion> {
                 ],
               ),
             ),
-            // Fila 3: Contraseña
+            // Fila Contraseña
             Expanded(
               flex: 15,
               child: Row(
                 children: [
-                  Expanded(
+                  const Expanded(
                     flex: 3,
                     child: Center(
                       child: Text(
@@ -97,7 +107,7 @@ class _IniciarSesionState extends State<IniciarSesion> {
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 18,
-                          color: Colors.black,
+                          color: AppColors.textoClaro,
                         ),
                       ),
                     ),
@@ -110,20 +120,27 @@ class _IniciarSesionState extends State<IniciarSesion> {
                         child: TextField(
                           obscureText: _obscureText,
                           textAlign: TextAlign.center,
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: 20, // <-- tamaño de letra aumentado
+                            fontSize: 20,
+                            color: AppColors.textoClaro,
                           ),
                           decoration: InputDecoration(
                             filled: true,
-                            fillColor: Colors.white,
-                            border: OutlineInputBorder(),
+                            fillColor: AppColors.boton,
+                            border: OutlineInputBorder(
+                              borderSide: BorderSide(color: AppColors.bordeInput),
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: AppColors.bordeInput),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: AppColors.textoClaro, width: 2),
+                            ),
                             suffixIcon: IconButton(
                               icon: Icon(
-                                _obscureText
-                                    ? Icons.visibility
-                                    : Icons.visibility_off,
-                                color: Colors.grey,
+                                _obscureText ? Icons.visibility : Icons.visibility_off,
+                                color: Colors.white70,
                               ),
                               onPressed: () {
                                 setState(() {
@@ -139,17 +156,15 @@ class _IniciarSesionState extends State<IniciarSesion> {
                 ],
               ),
             ),
+            // Botón Iniciar Sesión
             Expanded(
               flex: 20,
               child: Center(
                 child: ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 40,
-                      vertical: 15,
-                    ),
-                    backgroundColor: const Color.fromARGB(255, 167, 206, 226),
+                    padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+                    backgroundColor: AppColors.boton,
                     textStyle: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 22,
@@ -157,11 +172,12 @@ class _IniciarSesionState extends State<IniciarSesion> {
                   ),
                   child: const Text(
                     'Iniciar Sesión',
-                    style: TextStyle(color: Colors.black), // color corregido
+                    style: TextStyle(color: AppColors.textoClaro),
                   ),
                 ),
               ),
             ),
+            // Botones Crear Usuario y Recuperar Contraseña
             Expanded(
               flex: 22,
               child: Row(
@@ -170,14 +186,16 @@ class _IniciarSesionState extends State<IniciarSesion> {
                     flex: 5,
                     child: Center(
                       child: TextButton.icon(
-                        onPressed: () {},
-                        icon: const Icon(Icons.person_add, color: Colors.black),
+                        onPressed: () {
+                          // Por ahora sin acción
+                        },
+                        icon: const Icon(Icons.person_add, color: AppColors.textoClaro),
                         label: const Text(
                           'CREAR USUARIO',
                           style: TextStyle(
                             fontSize: 22,
                             fontWeight: FontWeight.bold,
-                            color: Colors.black,
+                            color: AppColors.textoClaro,
                           ),
                         ),
                       ),
@@ -195,22 +213,14 @@ class _IniciarSesionState extends State<IniciarSesion> {
                             ),
                           );
                         },
-                        backgroundColor: const Color.fromARGB(
-                          255,
-                          132,
-                          205,
-                          241,
-                        ),
-                        icon: const Icon(
-                          Icons.lock_reset,
-                          color: Colors.black,
-                        ), // blanco
+                        backgroundColor: AppColors.boton,
+                        icon: const Icon(Icons.lock_reset, color: Colors.black),
                         label: const Text(
                           'Olvidó su Contraseña',
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
-                            color: Colors.black, // blanco
+                            color: Colors.black,
                           ),
                         ),
                       ),
