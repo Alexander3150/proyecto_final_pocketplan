@@ -177,7 +177,7 @@ class _NuevaContrasenaPageState extends State<NuevaContrasenaPage> {
                   ),
 
                   const SizedBox(
-                    height: 280,
+                    height: 200,
                   ), // Espacio adicional antes del botón de regreso
 
                   TextButton(
