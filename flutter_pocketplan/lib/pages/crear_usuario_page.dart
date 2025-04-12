@@ -40,8 +40,14 @@ class CrearUsuarioScreen extends StatelessWidget {
             // Campos de entrada
             Expanded(flex: 14, child: buildInputRow('Correo Electrónico:')),
             Expanded(flex: 14, child: buildInputRow('Nombre de Usuario:')),
-            Expanded(flex: 14, child: buildInputRow('Contraseña:', obscure: true)),
-            Expanded(flex: 14, child: buildInputRow('Confirmar Contraseña:', obscure: true)),
+            Expanded(
+              flex: 14,
+              child: buildInputRow('Contraseña:', obscure: true),
+            ),
+            Expanded(
+              flex: 14,
+              child: buildInputRow('Confirmar Contraseña:', obscure: true),
+            ),
             // Botón principal
             Expanded(
               flex: 14,
@@ -65,7 +71,9 @@ class CrearUsuarioScreen extends StatelessWidget {
             Expanded(
               flex: 10,
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pop(context); // Regresa a la pantalla anterior
+                },
                 child: Text(
                   'Ir a Inicio de Sesión',
                   style: TextStyle(color: celeste),
@@ -100,7 +108,9 @@ class CrearUsuarioScreen extends StatelessWidget {
                 fillColor: Color(0xFF1E1E1E), // gris oscuro
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
-                  borderSide: const BorderSide(color: Color(0xFF00BFFF)), // celeste
+                  borderSide: const BorderSide(
+                    color: Color(0xFF00BFFF),
+                  ), // celeste
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
