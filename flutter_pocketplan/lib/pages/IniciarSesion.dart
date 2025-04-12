@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_pocketplan/pages/recover_pasword.dart';
+import 'package:flutter_pocketplan/pages/crear_usuario_page.dart';
 
 // Paleta de colores personalizada
 class AppColors {
@@ -170,7 +171,14 @@ class _IniciarSesionState extends State<IniciarSesion> {
                     flex: 5,
                     child: Center(
                       child: TextButton.icon(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const CrearUsuarioScreen(),
+                            ),
+                          );
+                        },
                         icon: const Icon(Icons.person_add, color: Colors.black),
                         label: const Text(
                           'CREAR USUARIO',
