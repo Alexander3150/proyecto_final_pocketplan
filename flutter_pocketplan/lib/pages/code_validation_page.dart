@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_pocketplan/pages/new_password_page.dart';
 
 class CodeValidationPage extends StatefulWidget {
   const CodeValidationPage({super.key});
@@ -31,6 +32,13 @@ class _CodeValidationPageState extends State<CodeValidationPage> {
           duration: Duration(seconds: 2),
         ),
       );
+      // Navegar a la pantalla de validación de código después de un breve retraso
+      Future.delayed(const Duration(seconds: 1), () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => NuevaContrasenaPage()),
+        );
+      });
     }
   }
 
